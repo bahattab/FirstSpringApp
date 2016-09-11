@@ -23,7 +23,5 @@
 			value="org.springframework.web.servlet.view.tiles3.TilesView" />
 	</bean>
 	<!-- Apache Tiles configuration ends here -->
-
-	<!-- -->
-
+	
 </beans>
