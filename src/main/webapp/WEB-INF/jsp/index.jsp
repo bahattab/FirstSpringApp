@@ -7,6 +7,6 @@
 <title>First Spring App</title>
 </head>
 <body>
-Hello World
+Hello from Spring MVC
 </body>
 </html>
