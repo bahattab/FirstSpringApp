@@ -14,7 +14,7 @@
 	</context:component-scan>
 	<!-- Annotations enabled configuration ends here -->
 
-	<!-- HSQL embeded database configuration -->
+	<!-- HSQL database configuration -->
 	<jdbc:embedded-database type="HSQL" id="dataSource"></jdbc:embedded-database>
 	<bean
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
@@ -31,7 +31,7 @@
 		<bean class="org.hibernate.jpa.HibernatePersistenceProvider"></bean>
 		</property>
 	</bean>
-	<!-- HSQL embeded database configuration ends here -->	
+	<!-- HSQL database configuration ends here -->	
 	
 	<!-- transactions configuration -->
 	<tx:annotation-driven transaction-manager="transactionManager"/>
