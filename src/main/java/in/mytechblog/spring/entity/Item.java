@@ -1,5 +1,7 @@
 package in.mytechblog.spring.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +18,7 @@ public class Item {
 	private String title;
 	private String description;
 	@Column(name="published_date")
-	private String publishedDate;
+	private Date publishedDate;
 	private String link;
 	@ManyToOne
 	@JoinColumn(name="blog_id")
@@ -41,11 +43,11 @@ public class Item {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getPublishedDate() {
+	public Date getPublishedDate() {
 		return publishedDate;
 	}
-	public void setPublishedDate(String publishedDate) {
-		this.publishedDate = publishedDate;
+	public void setPublishedDate(Date date) {
+		this.publishedDate = date;
 	}
 	public String getLink() {
 		return link;
