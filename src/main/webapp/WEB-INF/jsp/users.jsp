@@ -11,12 +11,12 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
 			<c:forEach items="${users}" var="user">
-				<td>
-					<a href='<spring:url value="/users/${user.getId()}.html"></spring:url>'><c:out value="${user.getName()}"></c:out></a>
-				</td>
+				<tr>
+					<td>
+						<a href='<spring:url value="/users/${user.getId()}.html"></spring:url>'><c:out value="${user.getName()}"></c:out></a>
+					</td>
+				</tr>
 			</c:forEach>
-		</tr>
 	</tbody>
 </table>

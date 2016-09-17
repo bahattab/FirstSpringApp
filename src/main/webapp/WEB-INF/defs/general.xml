@@ -25,5 +25,11 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/user-detail.jsp" />
 		<put-attribute name="current" value="user-detail"></put-attribute>
 	</definition>
+	
+	<definition name="user-register" extends="common">
+		<put-attribute name="title" value="First Spring App - user-register" />
+		<put-attribute name="body" value="/WEB-INF/jsp/user-register.jsp" />
+		<put-attribute name="current" value="user-register"></put-attribute>
+	</definition>
 
 </tiles-definitions>
