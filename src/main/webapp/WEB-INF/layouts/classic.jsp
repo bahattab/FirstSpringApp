@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles-extras" prefix="tilesx" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+
+<tilesx:useAttribute name="current"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,9 +35,8 @@
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href='<spring:url value="/"></spring:url>'>Home</a></li>
-						<li><a href='<spring:url value="/users.html"></spring:url>'>Users</a></li>
-						<li><a href="#">Contact</a></li>
+						<li class="${current=='index'?'active':''}"><a href='<spring:url value="/"></spring:url>'>Home</a></li>
+						<li class="${current=='users'?'active':''}"><a href='<spring:url value="/users.html"></spring:url>'>Users</a></li>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
