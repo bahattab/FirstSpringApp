@@ -13,8 +13,7 @@
 
 	<!-- Annotations enabled configuration -->
 	<context:component-scan base-package="in.mytechblog.spring">
-		<context:exclude-filter type="annotation"
-			expression="org.springframework.stereotype.Controller" />
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 	<!-- Annotations enabled configuration ends here -->
 
