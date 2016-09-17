@@ -8,14 +8,17 @@ import org.springframework.stereotype.Service;
 import in.mytechblog.spring.entity.User;
 import in.mytechblog.spring.repository.UserRepository;
 
-
 @Service
 public class UserService {
 
 	@Autowired
 	private UserRepository userRepository;
-	
-	public List<User> findAll(){
+
+	public List<User> findAll() {
 		return userRepository.findAll();
+	}
+
+	public Object findOne(int id) {
+		return userRepository.findOne(id);
 	}
 }

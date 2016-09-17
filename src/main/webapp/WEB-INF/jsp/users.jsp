@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
-<table class="table table-stripped table-hover">
+
+<table class="table table-striped table-hover">
 	<thead>
 		<tr>
 			<th>User</th>
@@ -11,7 +13,9 @@
 	<tbody>
 		<tr>
 			<c:forEach items="${users}" var="user">
-			<td><c:out value="${user.getName()}"></c:out> </td>
+				<td>
+					<a href='<spring:url value="/users/${user.getId()}.html"></spring:url>'><c:out value="${user.getName()}"></c:out></a>
+				</td>
 			</c:forEach>
 		</tr>
 	</tbody>
