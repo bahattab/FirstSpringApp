@@ -4,7 +4,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 
-<table class="table table-striped table-hover">
+<table class="table table-striped table-hover table-bordered table-responsive">
 	<thead>
 		<tr>
 			<th>User</th>

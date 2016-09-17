@@ -5,7 +5,7 @@
 	version="3.0">
 
 	<display-name>FirstSpringApp</display-name>
-	
+
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -18,10 +18,24 @@
 		<url-pattern>*.xml</url-pattern>
 		<url-pattern>*.json</url-pattern>
 	</servlet-mapping>
-	
+
 	<!-- application context -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+
+	<!-- For lazy loading -->
+	<filter>
+		<filter-name>oemInViewFilter</filter-name>
+		<filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter</filter-class>
+		<init-param>
+			<param-name>entityManagerFactoryBeanName</param-name>
+			<param-value>emf</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>oemInViewFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 
 </web-app>
