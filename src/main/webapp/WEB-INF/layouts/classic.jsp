@@ -38,6 +38,8 @@
 						<li class="${current=='index'?'active':''}"><a href='<spring:url value="/"></spring:url>'>Home</a></li>
 						<li class="${current=='users'?'active':''}"><a href='<spring:url value="/users.html"></spring:url>'>Users</a></li>
 						<li class="${current=='user-register'?'active':''}"><a href='<spring:url value="/register.html"></spring:url>'>Register</a></li>
+						<li class="${current=='login'?'active':''}"><a href='<spring:url value="/login.html"></spring:url>'>Login</a></li>
+						<li class="${current=='logout'?'active':''}"><a href='<spring:url value="/logout.html"></spring:url>'>Logout</a></li>					
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
