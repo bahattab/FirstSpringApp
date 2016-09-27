@@ -3,7 +3,7 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles-extras" prefix="tilesx" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <tilesx:useAttribute name="current"/>
 
 <!DOCTYPE html>
@@ -36,10 +36,16 @@
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
 						<li class="${current=='index'?'active':''}"><a href='<spring:url value="/"></spring:url>'>Home</a></li>
-						<li class="${current=='users'?'active':''}"><a href='<spring:url value="/users.html"></spring:url>'>Users</a></li>
+						<security:authorize access="hasRole('ROLE_ADMIN')">
+							<li class="${current=='users'?'active':''}"><a href='<spring:url value="/users.html"></spring:url>'>Users</a></li>
+						</security:authorize>
 						<li class="${current=='user-register'?'active':''}"><a href='<spring:url value="/register.html"></spring:url>'>Register</a></li>
-						<li class="${current=='login'?'active':''}"><a href='<spring:url value="/login.html"></spring:url>'>Login</a></li>
-						<li class="${current=='logout'?'active':''}"><a href='<spring:url value="/logout.html"></spring:url>'>Logout</a></li>					
+						<security:authorize access="!isAuthenticated()">
+							<li class="${current=='login'?'active':''}"><a href='<spring:url value="/login.html"></spring:url>'>Login</a></li>
+						</security:authorize>
+						<security:authorize access="isAuthenticated()">
+							<li class="${current=='logout'?'active':''}"><a href='<spring:url value="/logout.html"></spring:url>'>Logout</a></li>					
+						</security:authorize>					
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
