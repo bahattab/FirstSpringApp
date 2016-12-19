@@ -5,6 +5,9 @@
 
 <h1>User Registration</h1>
 <hr>
+<c:if test="${param.message=='success'}">
+	<div class="aler aler-success">Registration Successful!</div>
+</c:if>
 <form:form commandName="user" cssClass="form-horizontal">
 	<div class="form-group">
 	    <label for="email" class="col-sm-1">Name:</label>
