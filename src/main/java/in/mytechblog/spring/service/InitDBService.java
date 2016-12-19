@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import in.mytechblog.spring.entity.Blog;
@@ -41,14 +42,15 @@ public class InitDBService {
 		Role userRole = new Role();
 		userRole.setName("ROLE_USER");
 		roleRepository.save(userRole);
-		
 		Role adminRole = new Role();
 		adminRole.setName("ROLE_ADMIN");
 		roleRepository.save(adminRole);
 		
 		User admin = new User();
+		admin.setEnabled(true);
 		admin.setName("admin");
-		admin.setPassword("admin");
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		admin.setPassword(encoder.encode("admin"));
 		List<Role> roles = new ArrayList<Role>();
 		roles.add(adminRole);
 		roles.add(userRole);
