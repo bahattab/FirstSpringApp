@@ -2,12 +2,63 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
+<script>
+$(document).ready(function(){
+	$('.nav-tabs a:first').tab('show');
+});
+</script>
 <h1>
 	Name:
 	<c:out value="${user.getName()}"></c:out>
 </h1>
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Add New Blog</button>
+
+<br>
+<br>
+<br>
+<div>
+
+	<!-- Nav tabs -->
+	<ul class="nav nav-tabs" role="tablist">
+		<c:forEach items="${user.blogs}" var="blog">	
+		<li role="presentation"><a href="#blog_${blog.id}" aria-controls="home" role="tab" data-toggle="tab">${blog.getName()}</a></li>
+		</c:forEach>
+	</ul>
+
+	<!-- Tab panes -->
+	<div class="tab-content">
+		<c:forEach items="${user.blogs}" var="blog">
+		<div role="tabpanel" class="tab-pane active" id="blog_${blog.id}">
+			<h4>Blog name: ${blog.getName()}</h4>
+		<h4>Blog URL: ${blog.getUrl()}</h4>
+		<table class="table table-striped table-hover table-bordered table-responsive">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Description</th>
+					<th>Published Date</th>
+					<th>Link</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${blog.items }" var="item">
+					<tr>
+						<td><c:out value="${item.getTitle()}"></c:out></td>
+						<td><c:out value="${item.getDescription()}"></c:out></td>
+						<td><c:out value="${item.getPublishedDate()}"></c:out></td>
+						<td><c:out value="${item.getLink()}"></c:out></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+		</div>
+		</c:forEach>
+	</div>
+
+</div>
+
+
 
 <form:form commandName="blog" cssClass="form-horizontal">
 	<!-- Modal -->
@@ -39,28 +90,4 @@
 	</div>
 </form:form>
 <p>
-	<c:forEach items="${user.blogs}" var="blog">
-		<h4>Blog name: ${blog.getName()}</h4>
-		<h4>Blog URL: ${blog.getUrl()}</h4>
-		<table class="table table-striped table-hover table-bordered table-responsive">
-			<thead>
-				<tr>
-					<th>Title</th>
-					<th>Description</th>
-					<th>Published Date</th>
-					<th>Link</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${blog.items }" var="item">
-					<tr>
-						<td><c:out value="${item.getTitle()}"></c:out></td>
-						<td><c:out value="${item.getDescription()}"></c:out></td>
-						<td><c:out value="${item.getPublishedDate()}"></c:out></td>
-						<td><c:out value="${item.getLink()}"></c:out></td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-	</c:forEach>
 </p>
